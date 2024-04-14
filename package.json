@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node ./scripts/create-env.js & webpack --config webpack.config.js",
-    "dev": "webpack --config webpack.config.dev.js"
+    "dev": "webpack --config webpack.config.dev.js",
+    "start": "webpack serve --config webpack.config.dev.js"
   },
   "repository": {
     "type": "git",
@@ -36,6 +37,8 @@
     "mini-css-extract-plugin": "^2.7.6",
     "terser-webpack-plugin": "^5.3.10",
     "webpack": "^5.84.1",
-    "webpack-cli": "^5.1.1"
+    "webpack-bundle-analyzer": "^4.10.2",
+    "webpack-cli": "^5.1.1",
+    "webpack-dev-server": "^5.0.4"
   }
 }

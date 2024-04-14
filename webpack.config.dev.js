@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require('dotenv-webpack');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 /** @type {import('webpack').Configuration} */
 module.exports = {
@@ -22,6 +23,7 @@ module.exports = {
     }
   },
   mode: 'development',
+  devtool: 'source-map',
   module: {
     rules : [
       {
@@ -56,6 +58,14 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'assets/[name].[contenthash].css'
     }),
-    new Dotenv()
-  ]
+    new Dotenv(),
+    new BundleAnalyzerPlugin()
+  ],
+  devServer:{
+    static:path.join(__dirname, 'dist'),
+    compress: true,
+    historyApiFallback: true,
+    port: 8080,
+    open: true
+  }
 }
