@@ -13,7 +13,6 @@ module.exports = {
     assetModuleFilename: 'assets/images/[name].[contenthash].[ext]',
     clean: true
   },
-  mode: 'production',
   resolve:{
     extensions: ['.js'],
     alias:{
@@ -23,6 +22,7 @@ module.exports = {
       "@styles": path.resolve(__dirname, 'src/styles')
     }
   },
+  mode: 'development',
   module: {
     rules : [
       {
@@ -57,12 +57,5 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'assets/[name].[contenthash].css'
     })
-  ],
-  optimization: {
-    minimize: true,
-    minimizer: [
-      new CssMinimizerPlugin(),
-      new TerserPlugin()
-    ]
-  }
+  ]
 }
